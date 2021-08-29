@@ -32,7 +32,7 @@ public class CountryController {
 	public List<String> getAllRegionBySpecificLanguageSync(@RequestParam(name = "region", required = true) String region, @RequestParam(name="language", required=true) String language){
 		long startTime = System.currentTimeMillis();
 		
-		LOGGER.info("Got Request for {} and {}",region,language);
+		LOGGER.info("Got Request for region {} and language {}",region,language);
 		
 		List<Country> getCountryByLanguage = countryClient.getCountriesByLanguageSync(language);
 		List<Country> getCountryByRegion = countryClient.getCountriesByRegionSync(region);
@@ -55,7 +55,7 @@ public class CountryController {
 	public List<String> getAllRegionBySpecificLanguageASync(@RequestParam(name = "region", required = true) String region, @RequestParam(name="language", required=true) String language){
 		long startTime = System.currentTimeMillis();
 		
-		LOGGER.info("Got Request for {} and {}",region,language);
+		LOGGER.info("Got Request for region {} and language {}",region,language);
 		
 		CompletableFuture<List<Country>> getCountryByLanguage = countryClient.getCountriesByLanguageASync(language);
 		CompletableFuture<List<Country>> getCountryByRegion = countryClient.getCountriesByRegionASync(region);
